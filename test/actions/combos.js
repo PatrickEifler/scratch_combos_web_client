@@ -19,38 +19,38 @@ describe('Combos Actions', () => {
       });
     });
     it('should should create an action to request commands list', () => {
-    	assert.deepEqual(combosActions.requestCombos(), {
-    		type: Types.COMBOS_GET_REQUEST
-    	});
+      assert.deepEqual(combosActions.requestCombos(), {
+        type: Types.COMBOS_GET_REQUEST
+      });
     });
-	});
+  });
 
-	describe('addCombos()', () => {
-		let fetchStub;
-		let store;
-		before(() => {
-			fetchStub = sinon.stub(global, 'fetch');
-			let combosPromise = () => {
-			  return new Promise((res, rej) => {
-			    res(combosMock[0]);
-			  });
-			};
-			fetchStub.returns(combosPromise());
-			store = mockStore({ isFetching: false, items: [], user: { token: 'y4iqyiu' } });
-		});
-		after(() => {
-			fetchStub.restore();
-		});
-		it('should create an action to create combo', () => {
-			return store.dispatch(combosActions.addCombo()).then(() => {
-				assert.propertyVal(store.getActions()[0], 'type', 'RECEIVE_COMBO_SUCCESS');
-			});
-		});
+  describe('addCombos()', () => {
+    let fetchStub;
+    let store;
+    before(() => {
+      fetchStub = sinon.stub(global, 'fetch');
+      let combosPromise = () => {
+        return new Promise((res, rej) => {
+          res(combosMock[0]);
+        });
+      };
+      fetchStub.returns(combosPromise());
+      store = mockStore({ isFetching: false, items: [], user: { token: 'y4iqyiu' } });
+    });
+    after(() => {
+      fetchStub.restore();
+    });
+    it('should create an action to create combo', () => {
+      return store.dispatch(combosActions.addCombo()).then(() => {
+        assert.propertyVal(store.getActions()[0], 'type', 'RECEIVE_COMBO_SUCCESS');
+      });
+    });
   });
 
   describe('getCombo', () => {
-  	it('should create an action to get one command', () => {
-  		//TODO
+    it('should create an action to get one command', () => {
+      //TODO
     });
   });
 
