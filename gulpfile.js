@@ -47,7 +47,7 @@ gulp.task('compress_bundle', function() {
 
 gulp.task('sass', function() {
   var input = 'stylesheets/base.sass';
-  var output = DIST_PATH + 'css';
+  var output = DIST_PATH;
   var sassOptions = {
       indentedSyntax: true,
       errLogToConsole: true,
@@ -62,7 +62,7 @@ gulp.task('sass', function() {
 
 gulp.task('compress_sass', function() {
   var input = 'stylesheets/base.sass';
-  var output = DIST_PATH + '/';
+  var output = DIST_PATH;
   var sassOptions = {
       indentedSyntax: true,
       errLogToConsole: true,
